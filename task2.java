@@ -1,17 +1,31 @@
 // Задание
-// 2) Вывести все простые числа от 1 до 1000
+// 2) К калькулятору из предыдущего дз добавить логирование.
+import java.util.Scanner;
 public class task2 {
     public static void main(String[] args) {
-        System.out.println("Вывод всех простых чисел от 1 до 100");
-            for(int i = 2; i < 100; ++i){
-                int count = 0;
-                for(int j = 2; j <= i && count < 2; ++j){
-                    if(i % j == 0){
-                    ++count;
-                }
-            }
-        if(count < 2)
-        System.out.println(i);
-            }
-    }    
+      double num1;
+      double num2;
+      double ans;
+      char op;
+      Scanner reader = new Scanner(System.in);
+      System.out.print("Введите два числа: ");
+      num1 = reader.nextDouble();
+      num2 = reader.nextDouble();
+      System.out.print("\nВведите знак операции (+, -, *, /): ");
+      op = reader.next().charAt(0);
+      switch(op) {
+         case '+': ans = num1 + num2;
+            break;
+         case '-': ans = num1 - num2;
+            break;
+         case '*': ans = num1 * num2;
+            break;
+         case '/': ans = num1 / num2;
+            break;
+         default:  System.out.printf("Ошибка! Введите корректный знак операции");
+            return;
+      }
+      System.out.print("\nРезультат операции:\n");
+      System.out.printf(num1 + " " + op + " " + num2 + " = " + ans);
+    } 
 }
